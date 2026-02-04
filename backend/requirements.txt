@@ -3,6 +3,8 @@ black==25.11.0
 click==8.1.8
 Django==4.2.28
 django-extensions==4.1
+djangorestframework==3.16.1
+Faker==37.12.0
 mypy_extensions==1.1.0
 packaging==26.0
 pathspec==1.0.4
@@ -11,3 +13,4 @@ pytokens==0.4.1
 sqlparse==0.5.5
 tomli==2.4.0
 typing_extensions==4.15.0
+tzdata==2025.3
