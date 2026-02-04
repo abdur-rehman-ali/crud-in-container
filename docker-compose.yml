@@ -11,3 +11,13 @@ services:
         python manage.py migrate &&
         python manage.py runserver 0.0.0.0:8000
       "
+  frontend:
+      build: ./frontend
+      container_name: crudapp-frontend
+      ports:
+        - "5173:5173"
+      volumes:
+        - ./frontend:/frontend
+        - /frontend/node_modules
+      stdin_open: true
+      tty: true
