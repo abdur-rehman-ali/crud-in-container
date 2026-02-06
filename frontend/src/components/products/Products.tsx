@@ -1,4 +1,6 @@
+import { Container } from "@radix-ui/themes"
 import ProductsTable from "./ProductsTable"
+import Header from "./Header"
 
 const DUMMY_PRODUCTS = [
   {
@@ -27,7 +29,10 @@ const DUMMY_PRODUCTS = [
 
 const Products = () => {
   return (
-    <ProductsTable products={DUMMY_PRODUCTS}/>
+    <Container>
+      <Header />
+      <ProductsTable products={DUMMY_PRODUCTS} />
+    </Container>
   )
 }
 

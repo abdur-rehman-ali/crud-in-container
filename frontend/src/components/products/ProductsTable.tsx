@@ -14,7 +14,7 @@ interface ProductTable {
 
 const ProductsTable = ({ products }: { products: ProductTable[] }) => {
   return (
-    <Box px="6">
+    <Box>
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row>
