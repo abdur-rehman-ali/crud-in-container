@@ -1,18 +1,8 @@
 import { Table, Box } from "@radix-ui/themes"
-
-interface ProductTable {
-  id: string
-  name: string
-  description: string
-  price: string
-  category: string
-  in_stock: boolean
-  created_at: string
-  updated_at: string
-}
+import type { IProduct } from '../../types/product'
 
 interface ProductsTableProps {
-  products?: ProductTable[]
+  products?: IProduct[]
 }
 
 const TableHeader = () => {
@@ -29,7 +19,7 @@ const TableHeader = () => {
   )
 }
 
-const TableRow = ({ product }: { product: ProductTable }) => {
+const TableRow = ({ product }: { product: IProduct }) => {
   return (
     <Table.Row key={product.id}>
       <Table.Cell style={{ width: '350px', maxWidth: '350px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
