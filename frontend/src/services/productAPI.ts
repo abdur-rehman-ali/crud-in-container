@@ -8,7 +8,7 @@ export const productsAPI = {
   /**
    * Get all products
    */
-  getProducts: () => apiFetch('/products/'),
+  list: () => apiFetch('/products/'),
 
   /**
    * Get single product by ID
