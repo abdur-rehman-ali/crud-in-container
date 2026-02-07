@@ -1,8 +1,7 @@
 import { Container } from "@radix-ui/themes"
 import ProductsTable from "./ProductsTable"
 import Header from "./Header"
-import { useEffect, useState } from "react"
-import { productsAPI } from "../../services/productAPI"
+import { useProducts } from "../../hooks/useProducts"
 
 interface Products {
   id: string
@@ -17,15 +16,7 @@ interface Products {
 
 
 const Products = () => {
-  const [products, setProducts] = useState<Products[]>()
-
-  useEffect(() => {
-    (async () => {
-      const response = await productsAPI.getProducts()
-      setProducts(response)
-    })()
-
-  }, [])
+  const { data: products } = useProducts()
 
   return (
     <Container>
