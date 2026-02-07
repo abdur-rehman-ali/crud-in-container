@@ -2,6 +2,7 @@ asgiref==3.11.1
 black==25.11.0
 click==8.1.8
 Django==4.2.28
+django-cors-headers==4.9.0
 django-extensions==4.1
 djangorestframework==3.16.1
 Faker==37.12.0
