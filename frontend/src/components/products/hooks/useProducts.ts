@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { productsAPI } from "../services/productAPI";
+import { productsAPI } from "../../../services/productAPI";
 import type { IProduct } from "../types/product";
 
 export interface PaginatedProductsResponse {
@@ -29,3 +29,4 @@ export const useProducts = () => {
     },
   });
 };
+
