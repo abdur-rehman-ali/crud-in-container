@@ -1,6 +1,6 @@
 import { Table, Box, Text } from "@radix-ui/themes";
 import { useInView } from "react-intersection-observer";
-import type { IProduct } from "../../../types/product";
+import type { IProduct } from "../../types/product";
 import ProductsTableHeader from "./ProductsTableHeader";
 import ProductsTableRow from "./ProductsTableRow";
 import ProductsTableEmpty from "./ProductsTableEmpty";
