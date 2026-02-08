@@ -1,7 +1,6 @@
 import { Table, Box, Text } from "@radix-ui/themes";
-import { useRef, useCallback } from "react";
+import { useInView } from "react-intersection-observer";
 import type { IProduct } from "../../types/product";
-import { useIntersectionObserver } from "../../hooks/useIntersectionObserver";
 
 interface ProductsTableProps {
   products?: IProduct[];
@@ -70,16 +69,14 @@ const ProductsTable = ({
   isFetchingNextPage,
   fetchNextPage,
 }: ProductsTableProps) => {
-  const loadMoreRef = useRef<HTMLDivElement>(null);
-
-  const handleIntersect = useCallback(() => {
-    if (hasNextPage && !isFetchingNextPage) {
-      fetchNextPage();
-    }
-  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
-
-  useIntersectionObserver(loadMoreRef, handleIntersect, {
-    enabled: hasNextPage === true && !isFetchingNextPage,
+  const { ref: loadMoreRef } = useInView({
+    threshold: 0.1,
+    onChange: (inView: boolean) => {
+      if (inView && hasNextPage && !isFetchingNextPage) {
+        fetchNextPage();
+      }
+    },
+    skip: !hasNextPage || isFetchingNextPage,
   });
 
   const renderTableBody = () => {
