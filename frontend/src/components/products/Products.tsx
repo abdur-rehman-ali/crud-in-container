@@ -1,7 +1,7 @@
 import { Container } from "@radix-ui/themes"
-import ProductsTable from "./ProductsTable"
-import Header from "./Header"
-import { useProducts } from "../../hooks/useProducts"
+import ProductsTable from "./components/ProductsTable/ProductsTable"
+import ProductsHeader from "./components/ProductsHeader/ProductsHeader"
+import { useProducts } from "./hooks/useProducts"
 
 interface Products {
   id: string
@@ -23,7 +23,7 @@ const Products = () => {
 
   return (
     <Container>
-      <Header />
+      <ProductsHeader />
       <ProductsTable
         products={products}
         isLoading={isLoading}

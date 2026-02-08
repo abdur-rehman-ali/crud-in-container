@@ -1,9 +1,19 @@
-import Products from "./components/products/Products";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import { Products, ProductDetail } from "./components/products";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Products />,
+  },
+  {
+    path: "/products/:id",
+    element: <ProductDetail />,
+  },
+]);
 
 function App() {
-  return (
-    <Products />
-  )
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;
