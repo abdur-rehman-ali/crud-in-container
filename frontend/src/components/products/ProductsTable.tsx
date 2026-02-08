@@ -1,4 +1,4 @@
-import { Table, Box, Text } from "@radix-ui/themes";
+import { Table, Box, Text, Badge } from "@radix-ui/themes";
 import { useInView } from "react-intersection-observer";
 import { useNavigate } from "react-router";
 import type { IProduct } from "../../types/product";
@@ -19,7 +19,7 @@ const TableHeader = () => {
         <Table.ColumnHeaderCell>Name</Table.ColumnHeaderCell>
         <Table.ColumnHeaderCell>Price</Table.ColumnHeaderCell>
         <Table.ColumnHeaderCell>Category</Table.ColumnHeaderCell>
-        <Table.ColumnHeaderCell>In Stock</Table.ColumnHeaderCell>
+        <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
       </Table.Row>
     </Table.Header>
   )
@@ -44,7 +44,11 @@ const TableRow = ({ product }: { product: IProduct }) => {
       <Table.RowHeaderCell>{product.name}</Table.RowHeaderCell>
       <Table.Cell>${product.price}</Table.Cell>
       <Table.Cell>{product.category}</Table.Cell>
-      <Table.Cell>{product.in_stock ? "Yes" : "No"}</Table.Cell>
+      <Table.Cell>
+        <Badge color={product.in_stock ? "green" : "red"}>
+          {product.in_stock ? "In Stock" : "Out of Stock"}
+        </Badge>
+      </Table.Cell>
     </Table.Row>
   )
 }
