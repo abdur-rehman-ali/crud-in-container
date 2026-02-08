@@ -1,5 +1,6 @@
 import { Table, Box, Text } from "@radix-ui/themes";
 import { useInView } from "react-intersection-observer";
+import { useNavigate } from "react-router";
 import type { IProduct } from "../../types/product";
 
 interface ProductsTableProps {
@@ -25,8 +26,18 @@ const TableHeader = () => {
 }
 
 const TableRow = ({ product }: { product: IProduct }) => {
+  const navigate = useNavigate();
+
+  const handleRowClick = () => {
+    navigate(`/products/${product.id}`);
+  };
+
   return (
-    <Table.Row key={product.id}>
+    <Table.Row
+      key={product.id}
+      onClick={handleRowClick}
+      style={{ cursor: "pointer" }}
+    >
       <Table.Cell style={{ width: '350px', maxWidth: '350px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
         {product.id}
       </Table.Cell>
