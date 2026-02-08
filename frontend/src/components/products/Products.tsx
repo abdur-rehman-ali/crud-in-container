@@ -16,12 +16,21 @@ interface Products {
 
 
 const Products = () => {
-  const { data: products } = useProducts()
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useProducts();
+
+  // Flatten all pages into a single array
+  const products = data?.pages.flatMap((page) => page.results) ?? undefined;
 
   return (
     <Container>
       <Header />
-      <ProductsTable products={products} />
+      <ProductsTable
+        products={products}
+        isLoading={isLoading}
+        hasNextPage={hasNextPage}
+        isFetchingNextPage={isFetchingNextPage}
+        fetchNextPage={fetchNextPage}
+      />
     </Container>
   )
 }

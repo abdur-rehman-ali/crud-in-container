@@ -6,9 +6,13 @@ import { apiFetch } from "./apiFetch";
  */
 export const productsAPI = {
   /**
-   * Get all products
+   * Get all products with pagination
    */
-  list: () => apiFetch('/products/'),
+  list: ({ pageParam = 1 }: { pageParam?: number } = {}) => {
+    const params = new URLSearchParams({ page: pageParam.toString() });
+
+    return apiFetch(`/products/?${params.toString()}`);
+  },
 
   /**
    * Get single product by ID

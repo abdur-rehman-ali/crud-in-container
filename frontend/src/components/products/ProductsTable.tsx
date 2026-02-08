@@ -1,8 +1,13 @@
-import { Table, Box } from "@radix-ui/themes"
-import type { IProduct } from '../../types/product'
+import { Table, Box, Text } from "@radix-ui/themes";
+import { useInView } from "react-intersection-observer";
+import type { IProduct } from "../../types/product";
 
 interface ProductsTableProps {
-  products?: IProduct[]
+  products?: IProduct[];
+  isLoading?: boolean;
+  hasNextPage?: boolean;
+  isFetchingNextPage?: boolean;
+  fetchNextPage: () => void;
 }
 
 const TableHeader = () => {
@@ -57,11 +62,35 @@ const LoadingTable = () => {
   )
 }
 
-const ProductsTable = ({ products }: ProductsTableProps) => {
-  const renderTableBody = () => {
-    if (!products) { return <LoadingTable /> }
+const ProductsTable = ({
+  products,
+  isLoading,
+  hasNextPage,
+  isFetchingNextPage,
+  fetchNextPage,
+}: ProductsTableProps) => {
+  const { ref: loadMoreRef } = useInView({
+    threshold: 0.1,
+    onChange: (inView: boolean) => {
+      if (inView && hasNextPage && !isFetchingNextPage) {
+        fetchNextPage();
+      }
+    },
+    skip: !hasNextPage || isFetchingNextPage,
+  });
 
-    if (products.length === 0) { return <EmptyTable />}
+  const renderTableBody = () => {
+    if (isLoading && !products) {
+      return <LoadingTable />;
+    }
+
+    if (products && products.length === 0) {
+      return <EmptyTable />;
+    }
+
+    if (!products) {
+      return null;
+    }
 
     return (
       <Table.Body>
@@ -78,6 +107,15 @@ const ProductsTable = ({ products }: ProductsTableProps) => {
         <TableHeader />
         {renderTableBody()}
       </Table.Root>
+      {hasNextPage && (
+        <Box ref={loadMoreRef} style={{ padding: "1rem", textAlign: "center" }}>
+          {isFetchingNextPage && (
+            <Text size="2" color="gray">
+              Loading...
+            </Text>
+          )}
+        </Box>
+      )}
     </Box>
   )
 }
