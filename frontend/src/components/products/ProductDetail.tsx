@@ -10,7 +10,7 @@ const ProductDetail = () => {
   if (isLoading) {
     return (
       <Container>
-        <Box style={{ padding: "2rem", textAlign: "center" }}>
+        <Box style={{ padding: "2rem",  textAlign: "center" }}>
           <Text>Loading...</Text>
         </Box>
       </Container>
@@ -20,7 +20,7 @@ const ProductDetail = () => {
   if (error || !product) {
     return (
       <Container>
-        <Box style={{ padding: "2rem", textAlign: "center" }}>
+        <Box style={{ padding: "2rem", display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center" }}>
           <Text color="red">Product not found</Text>
           <Button onClick={() => navigate("/")} style={{ marginTop: "1rem" }}>
             Back to Products
