@@ -1,14 +1,17 @@
 import { Root } from "@radix-ui/react-dialog";
 import "./styles.css";
 
-import DialogTrigger from "./dialogTrigger/DialogTrigger";
-import DialogPortal from "./dialogPortal/DialogPortal";
-import DialogOverlay from "./dialogOverlay/DialogOverlay";
-import DialogContent from "./dialogContent/DialogContent";
-import DialogTitle from "./dialogTitle/DialogTitle";
-import DialogDescription from "./dialogDescription/DialogDescription";
-import DialogClose from "./dialogClose/DialogClose";
-import DialogCloseIconButton from "./dialogCloseIcon/DialogCloseIconButton";
+import {
+  DialogPortal,
+  DialogOverlay,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+  DialogCloseIconButton,
+} from "../dialog";
+
 
 const DialogDemo = () => (
 	<Root>
