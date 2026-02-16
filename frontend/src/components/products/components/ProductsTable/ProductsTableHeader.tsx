@@ -11,8 +11,8 @@ const ProductsTableHeader = () => {
         <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
       </Table.Row>
     </Table.Header>
-  )
-}
+  );
+};
 
-export default ProductsTableHeader
+export default ProductsTableHeader;
 

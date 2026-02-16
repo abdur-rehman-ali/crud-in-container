@@ -9,8 +9,8 @@ const ProductsTableLoading = () => {
         </Table.Cell>
       </Table.Row>
     </Table.Body>
-  )
-}
+  );
+};
 
-export default ProductsTableLoading
+export default ProductsTableLoading;
 

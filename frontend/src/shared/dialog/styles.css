@@ -1,0 +1,59 @@
+/* reset */
+button {
+	all: unset;
+}
+
+.Button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	padding: 0 15px;
+	font-size: 15px;
+	line-height: 1;
+	font-weight: 500;
+	height: 35px;
+	user-select: none;
+	cursor: pointer;
+}
+.Button:focus:not(:focus-visible) {
+	outline: 0;
+}
+.Button:focus-visible {
+	outline: 2px solid #667eea;
+	outline-offset: 1px;
+}
+.Button.violet {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: #ffffff;
+}
+.Button.violet:hover {
+	opacity: 0.9;
+}
+.Button.green {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: #ffffff;
+}
+.Button.green:hover {
+	opacity: 0.9;
+}
+
+@keyframes overlayShow {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes contentShow {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -48%) scale(0.96);
+	}
+	to {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}

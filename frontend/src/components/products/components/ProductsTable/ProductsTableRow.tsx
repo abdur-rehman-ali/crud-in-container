@@ -32,8 +32,8 @@ const ProductsTableRow = ({ product }: ProductsTableRowProps) => {
         </Badge>
       </Table.Cell>
     </Table.Row>
-  )
-}
+  );
+};
 
-export default ProductsTableRow
+export default ProductsTableRow;
 
