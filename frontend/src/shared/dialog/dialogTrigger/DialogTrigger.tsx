@@ -6,7 +6,7 @@ const DialogTrigger = ({ children }: { children: ReactNode }) => {
     <Trigger asChild>
       {children}
     </Trigger>
-  )
-}
+  );
+};
 
-export default DialogTrigger
+export default DialogTrigger;

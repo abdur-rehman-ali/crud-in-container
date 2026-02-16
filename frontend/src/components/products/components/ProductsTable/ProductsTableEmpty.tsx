@@ -9,8 +9,8 @@ const ProductsTableEmpty = () => {
         </Table.Cell>
       </Table.Row>
     </Table.Body>
-  )
-}
+  );
+};
 
-export default ProductsTableEmpty
+export default ProductsTableEmpty;
 

@@ -1,8 +1,8 @@
-import { Container } from "@radix-ui/themes"
-import ProductsTable from "./components/ProductsTable/ProductsTable"
-import ProductsHeader from "./components/ProductsHeader/ProductsHeader"
-import { useProducts } from "./hooks/useProducts"
-import DialogDemo from "../../shared/dialog/DialogDemo"
+import { Container } from "@radix-ui/themes";
+import ProductsTable from "./components/ProductsTable/ProductsTable";
+import ProductsHeader from "./components/ProductsHeader/ProductsHeader";
+import { useProducts } from "./hooks/useProducts";
+import DialogDemo from "../../shared/dialog/DialogDemo";
 
 interface Products {
   id: string
@@ -34,7 +34,7 @@ const Products = () => {
         fetchNextPage={fetchNextPage}
       />
     </Container>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

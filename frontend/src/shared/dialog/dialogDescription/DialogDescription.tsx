@@ -6,4 +6,4 @@ const DialogDescription = ({ children }: { children: ReactNode }) => {
   return <Description className="DialogDescription">{children}</Description>;
 };
 
-export default DialogDescription
+export default DialogDescription;

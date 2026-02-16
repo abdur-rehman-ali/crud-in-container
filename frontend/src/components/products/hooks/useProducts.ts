@@ -11,7 +11,7 @@ export interface PaginatedProductsResponse {
 
 export const productKeys = {
   list: ['products']
-}
+};
 
 export const useProducts = () => {
       

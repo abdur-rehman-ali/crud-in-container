@@ -12,4 +12,4 @@ const DialogCloseIconButton = () => {
   );
 };
 
-export default DialogCloseIconButton
+export default DialogCloseIconButton;

@@ -50,8 +50,8 @@ const ProductsTable = ({
           <ProductsTableRow product={product} key={product.id} />
         ))}
       </Table.Body>
-    )
-  }
+    );
+  };
 
   return (
     <Box>
@@ -69,8 +69,8 @@ const ProductsTable = ({
         </Box>
       )}
     </Box>
-  )
-}
+  );
+};
 
-export default ProductsTable
+export default ProductsTable;
 

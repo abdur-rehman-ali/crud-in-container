@@ -5,4 +5,4 @@ const DialogClose = ({ children }: { children: ReactNode }) => {
   return <Close asChild>{children}</Close>;
 };
 
-export default DialogClose
+export default DialogClose;

@@ -6,4 +6,4 @@ const DialogContent = ({ children }: { children: ReactNode }) => {
   return <Content className="DialogContent">{children}</Content>;
 };
 
-export default DialogContent
+export default DialogContent;

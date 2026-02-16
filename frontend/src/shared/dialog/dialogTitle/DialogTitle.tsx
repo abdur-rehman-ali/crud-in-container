@@ -6,4 +6,4 @@ const DialogTitle = ({ children }: { children: ReactNode }) => {
   return <Title className="DialogTitle">{children}</Title>;
 };
 
-export default DialogTitle
+export default DialogTitle;

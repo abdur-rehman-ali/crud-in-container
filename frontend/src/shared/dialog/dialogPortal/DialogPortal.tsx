@@ -6,7 +6,7 @@ const DialogPortal = ({ children }: { children: ReactNode }) => {
     <Portal>
       {children}
     </Portal>
-  )
-}
+  );
+};
 
-export default DialogPortal
+export default DialogPortal;
