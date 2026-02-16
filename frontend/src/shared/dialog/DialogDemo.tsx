@@ -1,46 +1,36 @@
-import { Dialog } from "radix-ui";
-import { Cross2Icon } from "@radix-ui/react-icons";
+import { Root } from "@radix-ui/react-dialog";
 import "./styles.css";
 
+import DialogTrigger from "./dialogTrigger/DialogTrigger";
+import DialogPortal from "./dialogPortal/DialogPortal";
+import DialogOverlay from "./dialogOverlay/DialogOverlay";
+import DialogContent from "./dialogContent/DialogContent";
+import DialogTitle from "./dialogTitle/DialogTitle";
+import DialogDescription from "./dialogDescription/DialogDescription";
+import DialogClose from "./dialogClose/DialogClose";
+import DialogCloseIconButton from "./dialogCloseIcon/DialogCloseIconButton";
+
 const DialogDemo = () => (
-	<Dialog.Root>
-		<Dialog.Trigger asChild>
-			<button className="Button violet">Create Product</button>
-		</Dialog.Trigger>
-		<Dialog.Portal>
-			<Dialog.Overlay className="DialogOverlay" />
-			<Dialog.Content className="DialogContent">
-				<Dialog.Title className="DialogTitle">Create Product</Dialog.Title>
-				<Dialog.Description className="DialogDescription">
-					Create a new product
-				</Dialog.Description>
-				<fieldset className="Fieldset">
-					<label className="Label" htmlFor="name">
-						Name
-					</label>
-					<input className="Input" id="name" defaultValue="John Doe" />
-				</fieldset>
-				<fieldset className="Fieldset">
-					<label className="Label" htmlFor="username">
-						Username
-					</label>
-					<input className="Input" id="username" defaultValue="@john.doe" />
-				</fieldset>
+	<Root>
+		<DialogTrigger>
+				<button className="Button violet">Create Product</button>
+		</DialogTrigger>
+		<DialogPortal>
+			<DialogOverlay />
+			<DialogContent>
+				<DialogTitle>Create Product</DialogTitle>
+				<DialogDescription>Create a new product</DialogDescription>
 				<div
 					style={{ display: "flex", marginTop: 25, justifyContent: "flex-end" }}
 				>
-					<Dialog.Close asChild>
+					<DialogClose>
 						<button className="Button green">Save changes</button>
-					</Dialog.Close>
+					</DialogClose>
 				</div>
-				<Dialog.Close asChild>
-					<button className="IconButton" aria-label="Close">
-						<Cross2Icon />
-					</button>
-				</Dialog.Close>
-			</Dialog.Content>
-		</Dialog.Portal>
-	</Dialog.Root>
+				<DialogCloseIconButton />
+			</DialogContent>
+		</DialogPortal>
+	</Root>
 );
 
 export default DialogDemo;
