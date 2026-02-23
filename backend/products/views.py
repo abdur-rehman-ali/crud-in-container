@@ -5,6 +5,7 @@ from products.models import Product
 from products.serializers import ProductSerializer
 from django.shortcuts import get_object_or_404
 from django.db.models import Count, Avg, Min, Max, Q
+from core.services.slow_service import slow_operation
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -54,3 +55,8 @@ class ProductViewSet(viewsets.ModelViewSet):
         stats["categories"] = list(category_stats)
 
         return Response(stats)
+
+    @action(detail=False, methods=["get"])
+    def slow(self, request):
+        result = slow_operation("products_slow")
+        return Response({"status": "ok", "duration": result["duration"]})
