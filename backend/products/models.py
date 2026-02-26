@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils import timezone
 import uuid
+from django_prometheus.models import ExportModelOperationsMixin
 
 
-class Product(models.Model):
+class Product(ExportModelOperationsMixin('product'), models.Model):
     class Category(models.TextChoices):
         ELECTRONICS = "Electronics", "Electronics"
         CLOTHING = "Clothing", "Clothing"
